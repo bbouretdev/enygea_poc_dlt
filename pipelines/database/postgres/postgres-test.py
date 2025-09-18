@@ -22,13 +22,13 @@ pipeline = dlt.pipeline(
 )
 
 # --- Connexion à PostgreSQL ---
-conn = psycopg2.connect(
-    host=POSTGRES_HOST,
-    port=POSTGRES_PORT,
-    dbname=POSTGRES_DB,
-    user=POSTGRES_USER,
-    password=POSTGRES_PASSWORD
-)
+# conn = psycopg2.connect(
+#     host=POSTGRES_HOST,
+#     port=POSTGRES_PORT,
+#     dbname=POSTGRES_DB,
+#     user=POSTGRES_USER,
+#     password=POSTGRES_PASSWORD
+# )
 
 # # --- Exemple pour une table "customers" ---
 # query = "select * from pokemon_showdown_latest.full_ability;"
