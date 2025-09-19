@@ -17,8 +17,7 @@ S3_BUCKET_URL = os.environ.get("DESTINATION__FILESYSTEM__BUCKET_URL")
 pipeline = dlt.pipeline(
     pipeline_name="postgres_to_s3_pipeline",
     destination="filesystem",
-    dataset_name="postgres_data",
-    full_refresh=False
+    dataset_name="postgres_data"
 )
 
 # --- Connexion à PostgreSQL ---
