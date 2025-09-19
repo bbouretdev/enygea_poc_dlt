@@ -20,29 +20,29 @@ pipeline = dlt.pipeline(
     dataset_name="postgres_data"
 )
 
-# --- Connexion à PostgreSQL ---
-# conn = psycopg2.connect(
-#     host=POSTGRES_HOST,
-#     port=POSTGRES_PORT,
-#     dbname=POSTGRES_DB,
-#     user=POSTGRES_USER,
-#     password=POSTGRES_PASSWORD
-# )
-
-# # --- Exemple pour une table "customers" ---
-# query = "select * from pokemon_showdown_latest.full_ability;"
-# df = pd.read_sql(query, conn)
-
-# # --- Charger les données avec DLT ---
-# pipeline.run(df, table_name="full_abilities")
-
-source = sql_database(
-    credentials=f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}",
-    schema="pokemon_showdown_latest",
-    table_names=["full_ability"],   # DLT gère incrémental
+## --- Connexion à PostgreSQL ---
+conn = psycopg2.connect(
+    host=POSTGRES_HOST,
+    port=POSTGRES_PORT,
+    dbname=POSTGRES_DB,
+    user=POSTGRES_USER,
+    password=POSTGRES_PASSWORD
 )
 
-pipeline.run(source)
+# --- Exemple pour une table "customers" ---
+query = "select * from pokemon_showdown_latest.full_ability;"
+df = pd.read_sql(query, conn)
+
+# --- Charger les données avec DLT ---
+pipeline.run(df, table_name="full_abilities")
+
+# source = sql_database(
+#     credentials=f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}",
+#     schema="pokemon_showdown_latest",
+#     table_names=["full_ability"],   # DLT gère incrémental
+# )
+
+# pipeline.run(source)
 
 # --- Optionnel : upload vers S3 en utilisant DLT FilesystemDestination avec bucket S3 ---
 # Si tu veux écrire directement sur S3, tu peux faire :
