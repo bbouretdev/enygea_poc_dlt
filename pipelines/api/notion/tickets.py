@@ -29,7 +29,7 @@ def get_tickets():
         yield page
 
 pipeline = dlt.pipeline(
-    pipeline_name="get_tickets",
+    pipeline_name="tickets",
     destination="filesystem",
     dataset_name="tickets"
 )
