@@ -20,7 +20,7 @@ notion_client = RESTClient(
 )
 
 @dlt.resource
-def get_tickets():
+def tickets():
     for page in notion_client.paginate(
         f"/databases/f5b42b94a0f24901904f8c625bbb4c22/query",
         method="POST",
