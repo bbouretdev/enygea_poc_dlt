@@ -33,5 +33,5 @@ pipeline = dlt.pipeline(
     destination="filesystem",
     dataset_name="tickets"
 )
-load_info = pipeline.run(get_tickets)
+load_info = pipeline.run(tickets)
 print(load_info)
