@@ -39,7 +39,7 @@ pipeline = dlt.pipeline(
 source = sql_database(
     credentials=f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}",
     schema="pokemon_showdown_latest",
-    table_names=["full_ability"],   # DLT gère incrémental
+    table_names=["full_ability"],
 )
 
 pipeline.run(source)
