@@ -67,7 +67,7 @@ def pokeapi_source():
 pipeline = dlt.pipeline(
     pipeline_name="pokeapi_full",
     dataset_name="pokemon",
-    destination="filesystem",  # ou "s3" si déjà configuré
+    destination="s3",
 )
 
 if __name__ == "__main__":
